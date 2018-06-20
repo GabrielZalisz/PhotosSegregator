@@ -18,7 +18,7 @@
         <TextBox Height="23" HorizontalAlignment="Stretch" Margin="97,4,155,0" Name="tbFrom" VerticalAlignment="Top" Grid.ColumnSpan="3" VerticalContentAlignment="Center" />
         <TextBox Height="23" HorizontalAlignment="Stretch" Margin="97,34,155,0" Name="tbTo" VerticalAlignment="Top" Grid.ColumnSpan="3" VerticalContentAlignment="Center" />
         <Label Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Padding="0" Name="lbl1" Background="WhiteSmoke">
-            <Image Name="image1" Stretch="Uniform" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Margin="5" />
+            <Image Name="image1" Stretch="Uniform" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Margin="5" RenderTransformOrigin="0.5,0.5" />
         </Label>
         <Button Content="Start" Height="23" HorizontalAlignment="Right" Margin="0,4,42,0" Name="button1" VerticalAlignment="Top" Width="106" Click="button1_Click" Grid.Column="2" />
         <Label Height="28" HorizontalAlignment="Left" Margin="12,66,0,0" Name="lblFilename" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="448" Content="⇦⇨ posouvání mezi fotkami, ⇩ do výběru, ⇧ vymazat z výběru" FontWeight="Bold" FontSize="15" Padding="5,0,5,5" />

@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.IO;
 using Gat.Controls.Model;
 using System.Globalization;
+using ExifReader;
 
 namespace Segregate
 {
@@ -158,8 +159,32 @@ namespace Segregate
                     lbl1.Background = new SolidColorBrush(Colors.Green);
                 else
                     lbl1.Background = new SolidColorBrush(Colors.WhiteSmoke);
+
+                ExifReader.ExifReader r = new ExifReader.ExifReader(list_souboru[0]);
+                string orientace = "1";
+                foreach (ExifProperty item in r.GetExifProperties())
+                {
+                    if (item.ExifPropertyName == "Orientation")
+                    {
+                        orientace = item.ToString();
+                        goto aaa;
+                    }
+                }
+                aaa:
+                if (orientace == "8")
+                {
+                    image1.RenderTransform = new RotateTransform(270);
+                }
+                else if (orientace == "6")
+                {
+                    image1.RenderTransform = new RotateTransform(90);
+                }
+                else
+                {
+                    image1.RenderTransform = new RotateTransform(0);
+                }
             }
-            catch
+            catch (Exception eee)
             {
                 image1.Source = null;
                 lbl1.Background = new SolidColorBrush(Colors.WhiteSmoke);
