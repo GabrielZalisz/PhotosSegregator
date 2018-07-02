@@ -109,6 +109,33 @@ namespace Segregate
             PrehrajObrazek();
         }
 
+        void Rotate(Image i, string soubor)
+        {
+            ExifReader.ExifReader r = new ExifReader.ExifReader(list_souboru[0]);
+            string orientace = "1";
+            foreach (ExifProperty item in r.GetExifProperties())
+            {
+                if (item.ExifPropertyName == "Orientation")
+                {
+                    orientace = item.ToString();
+                    goto aaa;
+                }
+            }
+            aaa:
+            if (orientace == "8")
+            {
+                image1.RenderTransform = new RotateTransform(270);
+            }
+            else if (orientace == "6")
+            {
+                image1.RenderTransform = new RotateTransform(90);
+            }
+            else
+            {
+                image1.RenderTransform = new RotateTransform(0);
+            }
+        }
+
         string[] list_vyber = new string[1];
 
         void PrehrajObrazek()
@@ -125,10 +152,13 @@ namespace Segregate
                     lbl00.Background = new SolidColorBrush(Colors.Green);
                 else
                     lbl00.Background = new SolidColorBrush(Colors.WhiteSmoke);
+
+                Rotate(image00, bin[bin.Count - 2]);
             }
             catch
             {
                 image00.Source = null;
+                image00.RenderTransform = new RotateTransform(0);
                 lbl00.Background = new SolidColorBrush(Colors.WhiteSmoke);
             } 
             try
@@ -142,10 +172,13 @@ namespace Segregate
                     lbl0.Background = new SolidColorBrush(Colors.Green);
                 else
                     lbl0.Background = new SolidColorBrush(Colors.WhiteSmoke);
+
+                Rotate(image0, bin[bin.Count - 1]);
             }
             catch
             {
                 image0.Source = null;
+                image0.RenderTransform = new RotateTransform(0);
                 lbl0.Background = new SolidColorBrush(Colors.WhiteSmoke);
             }
             try
@@ -160,33 +193,12 @@ namespace Segregate
                 else
                     lbl1.Background = new SolidColorBrush(Colors.WhiteSmoke);
 
-                ExifReader.ExifReader r = new ExifReader.ExifReader(list_souboru[0]);
-                string orientace = "1";
-                foreach (ExifProperty item in r.GetExifProperties())
-                {
-                    if (item.ExifPropertyName == "Orientation")
-                    {
-                        orientace = item.ToString();
-                        goto aaa;
-                    }
-                }
-                aaa:
-                if (orientace == "8")
-                {
-                    image1.RenderTransform = new RotateTransform(270);
-                }
-                else if (orientace == "6")
-                {
-                    image1.RenderTransform = new RotateTransform(90);
-                }
-                else
-                {
-                    image1.RenderTransform = new RotateTransform(0);
-                }
+                Rotate(image1, list_souboru[0]);
             }
             catch (Exception eee)
             {
                 image1.Source = null;
+                image1.RenderTransform = new RotateTransform(0);
                 lbl1.Background = new SolidColorBrush(Colors.WhiteSmoke);
             }
             try
@@ -200,10 +212,13 @@ namespace Segregate
                     lbl2.Background = new SolidColorBrush(Colors.Green);
                 else
                     lbl2.Background = new SolidColorBrush(Colors.WhiteSmoke);
+
+                Rotate(image2, list_souboru[1]);
             }
             catch
             {
                 image2.Source = null;
+                image2.RenderTransform = new RotateTransform(0);
                 lbl2.Background = new SolidColorBrush(Colors.WhiteSmoke);
             }
             try
@@ -217,10 +232,13 @@ namespace Segregate
                     lbl3.Background = new SolidColorBrush(Colors.Green);
                 else
                     lbl3.Background = new SolidColorBrush(Colors.WhiteSmoke);
+
+                Rotate(image3, list_souboru[2]);
             }
             catch
             {
                 image3.Source = null;
+                image3.RenderTransform = new RotateTransform(0);
                 lbl3.Background = new SolidColorBrush(Colors.WhiteSmoke);
             }
 
