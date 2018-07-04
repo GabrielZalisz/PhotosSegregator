@@ -54,19 +54,19 @@
         </Label>
         <Button Content="?" Grid.Column="3" HorizontalAlignment="Right" Name="button2" Width="32" FontSize="30" FontWeight="Bold" Click="button2_Click" Grid.RowSpan="3" Grid.Row="1" Margin="0,0,5,0" />
         <Button Content="Čenkovice" Grid.Column="2" Height="23" HorizontalAlignment="Left" Margin="348,7,0,0" Name="button4" VerticalAlignment="Top" Width="75" Click="button4_Click" Visibility="Collapsed" Grid.Row="4" />
-        <CheckBox Content="5 snímků" VerticalAlignment="Top" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Right" Margin="0,5,90,0" Grid.ColumnSpan="2"/>
+        <CheckBox Content="zobrazit 5 snímků" VerticalAlignment="Top" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Right" Margin="0,5,5,0" Grid.ColumnSpan="2"/>
         <ScrollViewer Grid.Row="8" Grid.ColumnSpan="4" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Margin="5,0" Focusable="False">
             <StackPanel Name="sp" Orientation="Horizontal"></StackPanel>
         </ScrollViewer>
-        <Button x:Name="btn10" Content="+10" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="30" Click="btn10_Click" Grid.Row="4" Height="20" Margin="0,0,65,5" ToolTip="Navigace vpřed (pro navigaci zpět klikněte se Shiftem)" Grid.ColumnSpan="2"/>
-        <Button x:Name="btn20" Content="+20" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="30" Click="btn20_Click" Grid.Row="4" Height="20" Margin="0,0,35,5" ToolTip="Navigace vpřed (pro navigaci zpět klikněte se Shiftem)" Grid.ColumnSpan="2"/>
-        <Button x:Name="btn50" Content="+50" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="30" Click="btn50_Click" Grid.Row="4" Height="20" Margin="0,0,5,5" ToolTip="Navigace vpřed (pro navigaci zpět klikněte se Shiftem)" Grid.ColumnSpan="2"/>
+        <Button x:Name="btn10" Content="+10" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="30" Click="btn10_Click" Grid.Row="4" Height="20" Margin="0,0,65,5" Grid.ColumnSpan="2"/>
+        <Button x:Name="btn20" Content="+20" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="30" Click="btn20_Click" Grid.Row="4" Height="20" Margin="0,0,35,5" Grid.ColumnSpan="2"/>
+        <Button x:Name="btn50" Content="+50" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="30" Click="btn50_Click" Grid.Row="4" Height="20" Margin="0,0,5,5" Grid.ColumnSpan="2"/>
         <Button x:Name="btnZpet" Content="⇦" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Bottom" Width="75" Margin="55,0,0,5" Grid.ColumnSpan="3" Click="btnZpet_Click" IsEnabled="{Binding ElementName=btnStop, Path=IsEnabled}"/>
         <Button x:Name="btnVyber" Grid.ColumnSpan="3" Content="výběr" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Bottom" Width="75" Margin="135,0,0,5" Click="btnVyber_Click" Background="{Binding ElementName=lbl1, Path=Background}" IsEnabled="{Binding ElementName=btnStop, Path=IsEnabled}"/>
         <Button x:Name="btnVpred" Grid.ColumnSpan="3" Content="⇨" HorizontalAlignment="Left" Margin="215,0,0,5" Grid.Row="4" VerticalAlignment="Bottom" Width="75" Click="btnVpred_Click" IsEnabled="{Binding ElementName=btnStop, Path=IsEnabled}"/>
-        <Button x:Name="btn_min50_Copy" Content="-50" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="30" Grid.Row="4" Height="20" Margin="0,0,212,5" ToolTip="Navigace vpřed (pro navigaci zpět klikněte se Shiftem)" Click="btn_min50_Copy_Click" Grid.ColumnSpan="2"/>
-        <Button x:Name="btn_min20_Copy" Content="-20" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="30" Grid.Row="4" Height="20" Margin="0,0,182,5" ToolTip="Navigace vpřed (pro navigaci zpět klikněte se Shiftem)" Click="btn_min20_Copy_Click" Grid.ColumnSpan="2"/>
-        <Button x:Name="btn_min10_Copy" Content="-10" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="30" Grid.Row="4" Height="20" Margin="0,0,151.724,5" ToolTip="Navigace vpřed (pro navigaci zpět klikněte se Shiftem)" Grid.ColumnSpan="2" Click="btn_min10_Copy_Click"/>
+        <Button x:Name="btn_min50_Copy" Content="-50" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="30" Grid.Row="4" Height="20" Margin="0,0,212,5" Click="btn_min50_Copy_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="btn_min20_Copy" Content="-20" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="30" Grid.Row="4" Height="20" Margin="0,0,182,5" Click="btn_min20_Copy_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="btn_min10_Copy" Content="-10" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="30" Grid.Row="4" Height="20" Margin="0,0,151.724,5" Grid.ColumnSpan="2" Click="btn_min10_Copy_Click"/>
         <TextBlock Grid.Column="3" HorizontalAlignment="Right" Margin="0,27,99.724,0" Grid.Row="4" TextWrapping="Wrap" Text="navigace" VerticalAlignment="Top"/>
     </Grid>
 </Window>
