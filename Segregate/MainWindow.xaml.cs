@@ -12,7 +12,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
-using Gat.Controls.Model;
 using System.Globalization;
 using ExifReader;
 
@@ -200,9 +199,15 @@ namespace Segregate
                 b.EndInit();
                 image1.Source = b;
                 if (list_vyber.Contains(System.IO.Path.Combine(tbTo.Text, System.IO.Path.GetFileName(list_souboru[pointer]))))
+                {
                     lbl1.Background = new SolidColorBrush(Colors.Green);
+                    ve_vyberu = true;
+                }
                 else
+                {
                     lbl1.Background = new SolidColorBrush(Colors.WhiteSmoke);
+                    ve_vyberu = false;
+                }
 
                 Rotate(image1, list_souboru[pointer]);
             }
@@ -211,6 +216,7 @@ namespace Segregate
                 image1.Source = null;
                 image1.RenderTransform = new RotateTransform(0);
                 lbl1.Background = new SolidColorBrush(Colors.WhiteSmoke);
+                ve_vyberu = false;
             }
             try
             {
@@ -263,11 +269,18 @@ namespace Segregate
             lbl1.Focus();
         }
 
+        bool ve_vyberu = false;
+
         private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            KeyDown1(e.Key);
+        }
+
+        private void KeyDown1(Key e)
         {
             try
             {
-                if (e.Key == Key.Right)
+                if (e == Key.Right)
                 {
                     if (pointer == list_souboru.Count - 1)
                     {
@@ -275,7 +288,7 @@ namespace Segregate
                         return;
                     }
                 }
-                if (e.Key == Key.Left)
+                if (e == Key.Left)
                 {
                     if (pointer == 0)
                     {
@@ -283,14 +296,14 @@ namespace Segregate
                         return;
                     }
                 }
-                if (e.Key == Key.Down)
+                if (e == Key.Down)
                 {
                     string new_path = System.IO.Path.Combine(tbTo.Text, System.IO.Path.GetFileName(list_souboru[pointer]));
                     File.Copy(list_souboru[pointer], new_path, true);
                     HodDoVyberu(new_path);
                     PrehrajObrazek();
                 }
-                if (e.Key == Key.Right)
+                if (e == Key.Right)
                 {
                     //bin.Add(list_souboru[0]);
                     //list_souboru.RemoveAt(0);
@@ -299,7 +312,7 @@ namespace Segregate
                         pointer = list_souboru.Count - 1;
                     PrehrajObrazek();
                 }
-                if (e.Key == Key.Left)
+                if (e == Key.Left)
                 {
                     //list_souboru.Insert(0, bin[bin.Count - 1]);
                     //bin.RemoveAt(bin.Count - 1);
@@ -308,7 +321,7 @@ namespace Segregate
                         pointer = 0;
                     PrehrajObrazek();
                 }
-                if (e.Key == Key.Up)
+                if (e == Key.Up)
                 {
                     string new_path = System.IO.Path.Combine(tbTo.Text, System.IO.Path.GetFileName(list_souboru[pointer]));
                     File.Delete(new_path);
@@ -457,16 +470,49 @@ namespace Segregate
 
         void Inkrement(int i)
         {
-            if (Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift))
-            {
-                i = i * -1;
-            }
             pointer += i;
             if (pointer < 0)
                 pointer = 0;
             if (pointer > list_souboru.Count - 1)
                 pointer = list_souboru.Count - 1;
             PrehrajObrazek();
+        }
+
+        private void btnZpet_Click(object sender, RoutedEventArgs e)
+        {
+            KeyDown1(Key.Left);
+        }
+
+        private void btnVyber_Click(object sender, RoutedEventArgs e)
+        {
+            if (ve_vyberu)
+            {
+                KeyDown1(Key.Up);
+            }
+            else
+            {
+                KeyDown1(Key.Down);
+            }
+        }
+
+        private void btnVpred_Click(object sender, RoutedEventArgs e)
+        {
+            KeyDown1(Key.Right);
+        }
+
+        private void btn_min50_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            Inkrement(-50);
+        }
+
+        private void btn_min20_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            Inkrement(-20);
+        }
+
+        private void btn_min10_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            Inkrement(-10);
         }
     }
 }

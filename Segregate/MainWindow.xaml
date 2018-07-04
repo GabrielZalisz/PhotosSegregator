@@ -4,7 +4,11 @@
         Title="Třídič fotek" Height="400" Width="793" KeyDown="Window_KeyDown" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" WindowState="Maximized" Icon="/TridicFotek;component/Images/Sites%203.ico">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="95" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="100*" />
             <RowDefinition Height="0" Name="row5" />
             <RowDefinition Height="5"/>
@@ -12,33 +16,34 @@
             <RowDefinition Height="5"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100*" Name="colL" />
-            <ColumnDefinition Width="300*" />
-            <ColumnDefinition Width="100*" Name="colR" />
+            <ColumnDefinition Width="150*" Name="colL" />
+            <ColumnDefinition Width="0"/>
+            <ColumnDefinition Width="471*" />
+            <ColumnDefinition Width="150*" Name="colR" />
         </Grid.ColumnDefinitions>
-        <Label Content="Původní složka:" Height="28" HorizontalAlignment="Left" Name="label1" VerticalAlignment="Top" />
-        <Label Content="Nová složka:" Height="28" HorizontalAlignment="Left" Margin="0,30,0,0" Name="label2" VerticalAlignment="Top" />
-        <TextBox Height="23" HorizontalAlignment="Stretch" Margin="97,4,155,0" Name="tbFrom" VerticalAlignment="Top" Grid.ColumnSpan="3" VerticalContentAlignment="Center" />
-        <TextBox Height="23" HorizontalAlignment="Stretch" Margin="97,34,155,0" Name="tbTo" VerticalAlignment="Top" Grid.ColumnSpan="3" VerticalContentAlignment="Center" />
-        <Label Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Padding="0" Name="lbl1" Background="WhiteSmoke" Grid.RowSpan="2">
+        <Label Content="Složka s fotkami:" Name="label1" Grid.Row="1" VerticalContentAlignment="Center" Padding="5,0,0,0" />
+        <Label Content="Složka pro výběr:" Name="label2" Grid.Row="3" VerticalContentAlignment="Center" Padding="5,0,0,0" />
+        <TextBox HorizontalAlignment="Stretch" Name="tbFrom" Grid.ColumnSpan="4" VerticalContentAlignment="Center" Grid.Row="1" Margin="110,0,150,0" />
+        <TextBox HorizontalAlignment="Stretch" Name="tbTo" Grid.ColumnSpan="4" VerticalContentAlignment="Center" Grid.Row="3" Margin="110,0,150,0" />
+        <Label Grid.Column="2" Grid.Row="5" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Padding="0" Name="lbl1" Background="WhiteSmoke" Grid.RowSpan="2" Margin="1">
             <Image Name="image1" Stretch="Uniform" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Margin="10" RenderTransformOrigin="0.5,0.5" />
         </Label>
-        <Button Content="Start" Height="23" HorizontalAlignment="Right" Margin="0,4,42,0" Name="button1" VerticalAlignment="Top" Width="106" Click="button1_Click" Grid.Column="2" />
-        <Label Height="28" HorizontalAlignment="Left" Margin="12,66,0,0" Name="lblFilename" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="448" Content="⇦⇨ posouvání mezi fotkami, ⇩ do výběru, ⇧ vymazat z výběru" FontWeight="Bold" FontSize="15" Padding="5,0,5,5" />
-        <Label Grid.Column="2" Grid.Row="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Padding="0" Name="lbl2" Background="WhiteSmoke">
+        <Button Content="Start" Name="button1" Click="button1_Click" Grid.Column="3" Grid.Row="1" Margin="10,0,45,0" Width="97" HorizontalAlignment="Right" />
+        <Label HorizontalAlignment="Left" Name="lblFilename" Grid.ColumnSpan="3" Content="⇦⇨ posouvání mezi fotkami, ⇩ do výběru, ⇧ vymazat z výběru" FontWeight="Bold" Grid.Row="4" VerticalContentAlignment="Center" VerticalAlignment="Top" />
+        <Label Grid.Column="3" Grid.Row="5" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Padding="0" Name="lbl2" Background="WhiteSmoke" Margin="1">
             <Image Grid.Column="2" Name="image2" Stretch="Uniform" Grid.Row="1" Margin="10" />
         </Label>
-        <Label Grid.Column="2" Grid.Row="2" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Padding="0" Name="lbl3" Background="WhiteSmoke" Margin="0,0,0,5" Grid.RowSpan="2">
+        <Label Grid.Column="3" Grid.Row="6" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Padding="0" Name="lbl3" Background="WhiteSmoke" Margin="1,1,1,6" Grid.RowSpan="2">
             <Image Grid.Column="2" Grid.Row="2" Name="image3" Stretch="Uniform" Margin="10" />
         </Label>
-        <Label Grid.Row="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Padding="0" Name="lbl0" Background="WhiteSmoke">
+        <Label Grid.Row="5" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Padding="0" Name="lbl0" Background="WhiteSmoke" Grid.ColumnSpan="2" Margin="1">
             <Image Grid.Row="1" Name="image0" Margin="10" />
         </Label>
-        <Label Grid.Row="2" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Padding="0" Name="lbl00" Background="WhiteSmoke" Margin="0,0,0,5" Grid.RowSpan="2">
+        <Label Grid.Row="6" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Padding="0" Name="lbl00" Background="WhiteSmoke" Margin="1,1,1,6" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <Image Grid.Row="2" Name="image00" Margin="10" />
         </Label>
-        <Button Content="Stop" Grid.Column="2" Height="23" HorizontalAlignment="Right" Margin="0,34,42,0" Name="btnStop" VerticalAlignment="Top" Width="106" Click="btnStop_Click" IsEnabled="False" />
-        <Label Grid.Column="2" Height="28" HorizontalAlignment="Right" Margin="0,61,6,0" Name="lblPocet" VerticalAlignment="Top" Width="143" HorizontalContentAlignment="Center" Padding="5,5,5,0" VerticalContentAlignment="Center">
+        <Button Content="Stop" Grid.Column="3" Name="btnStop" Click="btnStop_Click" IsEnabled="False" Grid.Row="3" Margin="10,0,45,0" Width="97" HorizontalAlignment="Right" />
+        <Label Name="lblPocet" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="4" Foreground="Green" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" Grid.ColumnSpan="19">
             <StackPanel Grid.Column="2" Grid.RowSpan="2" Name="stackPanel1" Orientation="Horizontal">
                 <TextBlock Name="tbl1"></TextBlock>
                 <TextBlock Text=" z "></TextBlock>
@@ -47,15 +52,21 @@
                 <TextBlock Name="tbl3"></TextBlock>
             </StackPanel>
         </Label>
-        <Button Content="?" Grid.Column="2" HorizontalAlignment="Right" Margin="0,4,5,0" Name="button2" Width="32" FontSize="30" FontWeight="Bold" Click="button2_Click" VerticalAlignment="Top" Height="53" />
-        <Button Content="?" Height="18" HorizontalAlignment="Left" Margin="75,36,0,0" Name="button3" VerticalAlignment="Top" Width="16" FontSize="9" ToolTip="Pokud toto pole necháte prázdné, bude v původní složce vytvořena podsložka &quot;výběr&quot;" />
-        <Button Content="Čenkovice" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="348,66,0,0" Name="button4" VerticalAlignment="Top" Width="75" Click="button4_Click" Visibility="Collapsed" />
-        <CheckBox Content="5 snímků" HorizontalAlignment="Right" Margin="0,70,270,0" VerticalAlignment="Top" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" Grid.ColumnSpan="2" Grid.Column="1"/>
-        <ScrollViewer Grid.Row="4" Grid.ColumnSpan="3" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Margin="5,0" Focusable="False">
+        <Button Content="?" Grid.Column="3" HorizontalAlignment="Right" Name="button2" Width="32" FontSize="30" FontWeight="Bold" Click="button2_Click" Grid.RowSpan="3" Grid.Row="1" Margin="0,0,5,0" />
+        <Button Content="Čenkovice" Grid.Column="2" Height="23" HorizontalAlignment="Left" Margin="348,7,0,0" Name="button4" VerticalAlignment="Top" Width="75" Click="button4_Click" Visibility="Collapsed" Grid.Row="4" />
+        <CheckBox Content="5 snímků" VerticalAlignment="Top" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Right" Margin="0,5,90,0" Grid.ColumnSpan="2"/>
+        <ScrollViewer Grid.Row="8" Grid.ColumnSpan="4" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Margin="5,0" Focusable="False">
             <StackPanel Name="sp" Orientation="Horizontal"></StackPanel>
         </ScrollViewer>
-        <Button x:Name="btn10" Content="+10" Grid.Column="1" HorizontalAlignment="Right" Margin="0,67,230,0" VerticalAlignment="Top" Width="30" Click="btn10_Click" Grid.ColumnSpan="2"/>
-        <Button x:Name="btn20" Content="+20" Grid.Column="1" HorizontalAlignment="Right" Margin="0,67,200,0" VerticalAlignment="Top" Width="30" Click="btn20_Click" Grid.ColumnSpan="2"/>
-        <Button x:Name="btn50" Content="+50" Grid.Column="1" HorizontalAlignment="Right" Margin="0,67,170,0" VerticalAlignment="Top" Width="30" Click="btn50_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="btn10" Content="+10" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="30" Click="btn10_Click" Grid.Row="4" Height="20" Margin="0,0,65,5" ToolTip="Navigace vpřed (pro navigaci zpět klikněte se Shiftem)" Grid.ColumnSpan="2"/>
+        <Button x:Name="btn20" Content="+20" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="30" Click="btn20_Click" Grid.Row="4" Height="20" Margin="0,0,35,5" ToolTip="Navigace vpřed (pro navigaci zpět klikněte se Shiftem)" Grid.ColumnSpan="2"/>
+        <Button x:Name="btn50" Content="+50" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="30" Click="btn50_Click" Grid.Row="4" Height="20" Margin="0,0,5,5" ToolTip="Navigace vpřed (pro navigaci zpět klikněte se Shiftem)" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnZpet" Content="⇦" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Bottom" Width="75" Margin="55,0,0,5" Grid.ColumnSpan="3" Click="btnZpet_Click" IsEnabled="{Binding ElementName=btnStop, Path=IsEnabled}"/>
+        <Button x:Name="btnVyber" Grid.ColumnSpan="3" Content="výběr" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Bottom" Width="75" Margin="135,0,0,5" Click="btnVyber_Click" Background="{Binding ElementName=lbl1, Path=Background}" IsEnabled="{Binding ElementName=btnStop, Path=IsEnabled}"/>
+        <Button x:Name="btnVpred" Grid.ColumnSpan="3" Content="⇨" HorizontalAlignment="Left" Margin="215,0,0,5" Grid.Row="4" VerticalAlignment="Bottom" Width="75" Click="btnVpred_Click" IsEnabled="{Binding ElementName=btnStop, Path=IsEnabled}"/>
+        <Button x:Name="btn_min50_Copy" Content="-50" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="30" Grid.Row="4" Height="20" Margin="0,0,212,5" ToolTip="Navigace vpřed (pro navigaci zpět klikněte se Shiftem)" Click="btn_min50_Copy_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="btn_min20_Copy" Content="-20" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="30" Grid.Row="4" Height="20" Margin="0,0,182,5" ToolTip="Navigace vpřed (pro navigaci zpět klikněte se Shiftem)" Click="btn_min20_Copy_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="btn_min10_Copy" Content="-10" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="30" Grid.Row="4" Height="20" Margin="0,0,151.724,5" ToolTip="Navigace vpřed (pro navigaci zpět klikněte se Shiftem)" Grid.ColumnSpan="2" Click="btn_min10_Copy_Click"/>
+        <TextBlock Grid.Column="3" HorizontalAlignment="Right" Margin="0,27,99.724,0" Grid.Row="4" TextWrapping="Wrap" Text="navigace" VerticalAlignment="Top"/>
     </Grid>
 </Window>
