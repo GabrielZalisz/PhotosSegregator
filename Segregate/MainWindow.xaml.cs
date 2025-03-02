@@ -13,7 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using System.Globalization;
-using ExifReader;
+using ExifPhotoReader;
 
 namespace Segregate
 {
@@ -117,29 +117,34 @@ namespace Segregate
 
         void Rotate(Image i, string soubor)
         {
-            ExifReader.ExifReader r = new ExifReader.ExifReader(list_souboru[pointer]);
-            string orientace = "1";
-            foreach (ExifProperty item in r.GetExifProperties())
+            try
             {
-                if (item.ExifPropertyName == "Orientation")
+                ExifImageProperties exifImage = ExifPhoto.GetExifDataPhoto(list_souboru[pointer]);
+                //ExifReader.ExifReader r = new ExifReader.ExifReader(list_souboru[pointer]);
+                //string orientace = "1";
+                //foreach (ExifProperty item in r.GetExifProperties())
+                //{
+                //    if (item.ExifPropertyName == "Orientation")
+                //    {
+                //        orientace = item.ToString();
+                //        goto aaa;
+                //    }
+                //}
+                //aaa:
+                if (exifImage.Orientation == ExifPhotoReader.Orientation.Rotate270)
                 {
-                    orientace = item.ToString();
-                    goto aaa;
+                    image1.RenderTransform = new RotateTransform(270);
+                }
+                else if (exifImage.Orientation == ExifPhotoReader.Orientation.Rotate90)
+                {
+                    image1.RenderTransform = new RotateTransform(90);
+                }
+                else
+                {
+                    image1.RenderTransform = new RotateTransform(0);
                 }
             }
-            aaa:
-            if (orientace == "8")
-            {
-                image1.RenderTransform = new RotateTransform(270);
-            }
-            else if (orientace == "6")
-            {
-                image1.RenderTransform = new RotateTransform(90);
-            }
-            else
-            {
-                image1.RenderTransform = new RotateTransform(0);
-            }
+            catch { }
         }
 
         string[] list_vyber = new string[1];

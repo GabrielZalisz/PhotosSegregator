@@ -1,16 +1,24 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35728.132 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Segregate", "Segregate\Segregate.csproj", "{C6A711B4-9A65-48A5-A31B-1C478BAB4947}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C6A711B4-9A65-48A5-A31B-1C478BAB4947}.Debug|x86.ActiveCfg = Debug|x86
-		{C6A711B4-9A65-48A5-A31B-1C478BAB4947}.Debug|x86.Build.0 = Debug|x86
+		{C6A711B4-9A65-48A5-A31B-1C478BAB4947}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C6A711B4-9A65-48A5-A31B-1C478BAB4947}.Debug|x64.Build.0 = Debug|Any CPU
+		{C6A711B4-9A65-48A5-A31B-1C478BAB4947}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C6A711B4-9A65-48A5-A31B-1C478BAB4947}.Debug|x86.Build.0 = Debug|Any CPU
+		{C6A711B4-9A65-48A5-A31B-1C478BAB4947}.Release|x64.ActiveCfg = Release|Any CPU
+		{C6A711B4-9A65-48A5-A31B-1C478BAB4947}.Release|x64.Build.0 = Release|Any CPU
 		{C6A711B4-9A65-48A5-A31B-1C478BAB4947}.Release|x86.ActiveCfg = Release|x86
 		{C6A711B4-9A65-48A5-A31B-1C478BAB4947}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
