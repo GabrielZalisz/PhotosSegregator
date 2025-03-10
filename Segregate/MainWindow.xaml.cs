@@ -270,6 +270,9 @@ namespace Segregate
             tbl2.Text = list_souboru.Count.ToString();
             tbl3.Text = list_vyber.Count().ToString();
 
+            pb.Value = (double)(pointer + 1) * 100 / list_souboru.Count;
+            //pb1.Value = (double)(list_vyber.Count()) * 100 / list_souboru.Count;
+
             lblPocet.Visibility = System.Windows.Visibility.Visible;
             lbl1.Focus();
         }
